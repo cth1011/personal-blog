@@ -7,15 +7,15 @@ import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-    console.log(this.props.pageContext)
+const BlogPostTemplate =({ data, pageContext, location}) => {
+
+    const post = data.mdx
+    const siteTitle = data.site.siteMetadata.title
+    const { previous, next } = pageContext
+
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={location} title={siteTitle}>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -63,7 +63,6 @@ class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
-}
 
 export default BlogPostTemplate
 

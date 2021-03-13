@@ -28,10 +28,9 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in
-              Minneapolis building silly things.
-              {` `}
-
+              Hi! I'm <strong>{author}</strong>, and I'm happy to welcome you to my blog. I'm
+              currently working as a Web Engineer for Thinking Machines Data
+              Science Inc, a data science startup in the Philippines. I post stuff about my learnings, side projects, and my life in general.
             </p>
           </div>
         )

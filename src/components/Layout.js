@@ -3,9 +3,8 @@ import { Link } from 'gatsby'
 
 import { rhythm, scale } from '../utils/typography'
 
-class Layout extends React.Component {
-  render() {
-    const { location, title, children } = this.props
+const Layout = ({ location, title, children}) => {
+
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -13,7 +12,7 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
+            ...scale(1.2),
             marginBottom: rhythm(1.5),
             marginTop: 0,
           }}
@@ -64,13 +63,12 @@ class Layout extends React.Component {
         {header}
         {children}
         <footer>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built by Chris
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
       </div>
     )
   }
-}
+
 
 export default Layout
