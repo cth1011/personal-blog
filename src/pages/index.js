@@ -1,32 +1,34 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { Text } from 'grommet'
+
+import styled from 'styled-components'
 
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = styled(({ className, data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout className={className} location={location} title={siteTitle}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <div key={node.fields.slug}>
-            <h3
-              style={{
-                marginBottom: rhythm(1 / 4),
-              }}
-            >
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                {title}
-              </Link>
-            </h3>
+            <div>
+              <Text className="post-title">
+                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  {title}
+                </Link>
+              </Text>
+            </div>
+
             <small>{node.frontmatter.date}</small>
             <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           </div>
@@ -34,7 +36,12 @@ const BlogIndex = ({ data, location }) => {
       })}
     </Layout>
   )
-}
+})`
+  .post-title {
+    font-weight: bold;
+    font-size: 22px;
+  }
+`
 
 export default BlogIndex
 
