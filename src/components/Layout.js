@@ -21,20 +21,29 @@ const Header = styled(({ className, title }) => (
         {' '}
         About
       </Link>
-      <Link className="link"> Life</Link>
-      <Link className="link"> Books</Link>
+      <Link className="link" to="/life">
+        {' '}
+        Life
+      </Link>
+      <Link className="link" to="/book">
+        {' '}
+        Book Notes
+      </Link>
     </Box>
   </Box>
 ))`
   padding: 20px 0 40px 0;
   .link {
     text-decoration: none;
+    border-bottom: 1px solid #fff;
     color: inherit;
     box-shadow: none;
     letter-spacing: 1px;
+    transition: all 0.5s;
   }
+
   .link:hover {
-    text-decoration: underline;
+    border-bottom: 1px solid #b1a7a6;
   }
 `
 
