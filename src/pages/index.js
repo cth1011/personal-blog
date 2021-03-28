@@ -4,10 +4,11 @@ import { Text } from 'grommet'
 
 import styled from 'styled-components'
 
+import * as colors from '../../colors'
+
 import Bio from '../components/Bio'
 import Layout from '../components/Layout'
 import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
 
 const BlogIndex = styled(({ className, data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -40,6 +41,23 @@ const BlogIndex = styled(({ className, data, location }) => {
   .post-title {
     font-weight: bold;
     font-size: 22px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 183, 3, 0.2) 0%,
+      rgba(255, 183, 3, 0.2) 100%
+    );
+    border-bottom: 3px solid transparent;
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 0px 0px;
+    transition: all 0.4s;
+  }
+  .post-title:hover {
+    background-size: 4px 50px;
+    border-bottom-color: ${colors.yellow};
+  }
+  a {
+    color: #111111;
   }
 `
 
