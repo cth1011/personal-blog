@@ -1,22 +1,18 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import Image from "gatsby-image"
+import styled from "styled-components"
 
-import { rhythm } from '../utils/typography'
+import { rhythm } from "../utils/typography"
 
-function Bio() {
+const Bio = styled(({ className }) => {
   return (
     <StaticQuery
       query={bioQuery}
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <div
-            style={{
-              display: `flex`,
-              marginBottom: rhythm(2.5),
-            }}
-          >
+          <div className={className}>
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
@@ -27,7 +23,7 @@ function Bio() {
                 borderRadius: `100%`,
               }}
             />
-            <p>
+            <p className="bio">
               Hi! I'm <strong>{author}</strong>, and I'm happy to welcome you to
               my blog. I'm currently working as a Web Engineer for Thinking
               Machines Data Science Inc, a data science startup in the
@@ -39,13 +35,21 @@ function Bio() {
       }}
     />
   )
-}
+})`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+  align-items: center;
+  .bio {
+    padding-top: 20px;
+  }
+`
 
 const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 70, height: 70) {
           ...GatsbyImageSharpFixed
         }
       }
