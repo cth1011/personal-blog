@@ -1,14 +1,14 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { Text } from 'grommet'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Text } from "grommet"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import * as colors from '../../colors'
+import * as colors from "../../colors"
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
 
 const BlogIndex = styled(({ className, data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -18,10 +18,10 @@ const BlogIndex = styled(({ className, data, location }) => {
     <Layout className={className} location={location} title={siteTitle}>
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <Bio />
-      {posts.map(({ node }) => {
+      {posts.map(({ node }, i) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <div key={node.fields.slug}>
+          <div key={i}>
             <div>
               <Text className="post-title">
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
@@ -37,29 +37,7 @@ const BlogIndex = styled(({ className, data, location }) => {
       })}
     </Layout>
   )
-})`
-  .post-title {
-    font-weight: bold;
-    font-size: 22px;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 183, 3, 0.2) 0%,
-      rgba(255, 183, 3, 0.2) 100%
-    );
-    border-bottom: 3px solid transparent;
-    background-position: 0 100%;
-    background-repeat: repeat-x;
-    background-size: 0px 0px;
-    transition: all 0.4s;
-  }
-  .post-title:hover {
-    background-size: 4px 50px;
-    border-bottom-color: ${colors.yellow};
-  }
-  a {
-    color: #111111;
-  }
-`
+})``
 
 export default BlogIndex
 

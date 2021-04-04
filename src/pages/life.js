@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { Text } from 'grommet'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Text } from "grommet"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import * as colors from '../../colors'
+import * as colors from "../../colors"
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
 
 const LifeIndex = styled(({ className, data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -15,17 +15,20 @@ const LifeIndex = styled(({ className, data, location }) => {
 
   return (
     <Layout className={className} location={location} title={siteTitle}>
-      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      {posts.map(({ node }) => {
+      <SEO
+        title="My Life"
+        keywords={["blog", "gatsby", "javascript", "react"]}
+      />
+      {posts.map(({ node }, i) => {
         const title = node.frontmatter.title || node.fields.slug
-        const isLife = node.frontmatter.tags === 'Books'
+        const isLife = node.frontmatter.tags === "Books"
         return (
           <>
             {isLife && (
-              <div key={node.fields.slug}>
+              <div key={i}>
                 <div>
                   <Text className="post-title">
-                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    <Link style={{ boxShadow: "none" }} to={node.fields.slug}>
                       {title}
                     </Link>
                   </Text>
@@ -40,15 +43,7 @@ const LifeIndex = styled(({ className, data, location }) => {
       })}
     </Layout>
   )
-})`
-  .post-title {
-    font-weight: bold;
-    font-size: 22px;
-  }
-  a {
-    color: ${colors.blue};
-  }
-`
+})``
 
 export default LifeIndex
 

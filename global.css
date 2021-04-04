@@ -1,0 +1,51 @@
+a {
+  color: #111111;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat;
+}
+
+/* Blog Posts*/
+.post-title a {
+  font-weight: bold;
+  font-size: 22px;
+  color: #111111;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 183, 3, 0.2) 0%,
+    rgba(255, 183, 3, 0.2) 100%
+  );
+  border-bottom: 3px solid transparent;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  background-size: 0px 0px;
+  transition: all 0.5s;
+}
+.post-title a:hover {
+  background-size: 4px 50px;
+  border-bottom-color: #ffb703;
+}
+
+/* Navigation Bar */
+
+a.nav {
+  border-bottom: 1px solid #ffffff;
+  letter-spacing: 1px;
+  transition: all 0.5s;
+}
+a.nav:hover {
+  border-bottom: 1px solid #b1a7a6;
+}
+
+a.nav-main {
+  font-size: 20px;
+  font-weight: bold;
+}

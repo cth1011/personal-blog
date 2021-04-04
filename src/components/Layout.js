@@ -1,50 +1,37 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { Box, Text } from 'grommet'
+import React from "react"
+import { Link } from "gatsby"
+import { Box, Text } from "grommet"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import { rhythm, scale } from '../utils/typography'
+import { rhythm, scale } from "../utils/typography"
+
+import "../../global.css"
 
 const Header = styled(({ className, title }) => (
   <Box flex direction="row" className={className} align="center">
     <Box flex={{ grow: 1 }}>
-      <Text size="24px" weight="bold">
-        <Link className="link" to={`/`}>
+      <Text>
+        <Link className="nav nav-main" to={`/`}>
           CHRIS HERRERA
         </Link>
       </Text>
     </Box>
 
     <Box direction="row" gap="15px">
-      <Link className="link" to="/about">
-        {' '}
+      <Link className="nav" to="/about">
         About
       </Link>
-      <Link className="link" to="/life">
-        {' '}
+      <Link className="nav" to="/life">
         Life
       </Link>
-      <Link className="link" to="/book">
-        {' '}
+      <Link className="nav" to="/book">
         Book Notes
       </Link>
     </Box>
   </Box>
 ))`
   padding: 20px 0 40px 0;
-  .link {
-    text-decoration: none;
-    border-bottom: 1px solid #fff;
-    color: inherit;
-    box-shadow: none;
-    letter-spacing: 1px;
-    transition: all 0.5s;
-  }
-
-  .link:hover {
-    border-bottom: 1px solid #b1a7a6;
-  }
 `
 
 const Layout = styled(({ className, location, title, children }) => {
