@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react"
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
 
-import { Box, Text } from 'grommet'
+import { Box, Text } from "grommet"
 
 const About = ({ location }) => {
   return (
@@ -41,10 +41,10 @@ const About = ({ location }) => {
           <Box gap="small" width="50%">
             <Text weight="bold">Learner</Text>
             <p>
-              I love learning new things. I'm a firm believer of concept of{' '}
+              I love learning new things. I'm a firm believer of concept of{" "}
               <a href="https://jamesclear.com/continuous-improvement">
                 1% improvement
-              </a>{' '}
+              </a>{" "}
               each day. I try to seek out a sense of progression in any area of
               my life whether it's weight lifting, cooking, or programming.
             </p>
@@ -60,7 +60,6 @@ const About = ({ location }) => {
           </Box>
         </Box>
       </Box>
-      <strong> </strong>
     </Layout>
   )
 }

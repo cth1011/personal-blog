@@ -1,7 +1,7 @@
 module.exports = {
-  pathPrefix: '/blog',
+  pathPrefix: "/blog",
   siteMetadata: {
-    title: `Chris Herrera`,
+    title: `CHRIS HERRERA`,
     author: `Christopher Herrera`,
     description: `An extension of the gatsby starter blog, with support for MDX`,
     siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: ['.mdx', '.md'],
+        extensions: [".mdx", ".md"],
         // a workaround to solve mdx-remark plugin compat issue
         // https://github.com/gatsbyjs/gatsby/issues/15486
         plugins: [`gatsby-remark-images`],
@@ -85,7 +85,7 @@ module.exports = {
                   data: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
@@ -115,8 +115,8 @@ module.exports = {
               }
             }
             `,
-            output: '/rss.xml',
-            title: 'Gatsby RSS feed',
+            output: "/rss.xml",
+            title: "Gatsby RSS feed",
           },
         ],
       },
@@ -130,16 +130,10 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/CH.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
   ],
 }
