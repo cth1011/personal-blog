@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { Text } from 'grommet'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { Text } from "grommet"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import * as colors from '../../colors'
+import * as colors from "../../colors"
 
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
 
 const BookIndex = styled(({ className, data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -15,24 +15,40 @@ const BookIndex = styled(({ className, data, location }) => {
 
   return (
     <Layout className={className} location={location} title={siteTitle}>
-      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        const isLife = node.frontmatter.tags === 'Books'
+      <SEO
+        title="Book Notes"
+        keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+      />
+      {posts.map(({ node }, i) => {
+        const { tags, author, score, date, title } = node.frontmatter
+        const postTitle = title || node.fields.slug
+        const isBook = tags === "book"
         return (
           <>
-            {isLife && (
-              <div key={node.fields.slug}>
-                <div>
-                  <Text className="post-title">
-                    <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                      {title}
-                    </Link>
-                  </Text>
+            {isBook && (
+              <div key={i} className="post-layout">
+                <div className="book-section">
+                  <img
+                    className="book-cover"
+                    alt="book-cover"
+                    src={require(`../../content/blog${node.fields.slug}book-cover.png`)}
+                  />
                 </div>
-
-                <small>{node.frontmatter.date}</small>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                <div>
+                  <div>
+                    <Text className="post-title">
+                      <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                        {postTitle}
+                      </Link>
+                    </Text>
+                  </div>
+                  <div>
+                    <small>
+                      By {author} | ⭐ {score} / 5 | 🕛 {date}
+                    </small>
+                  </div>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                </div>
               </div>
             )}
           </>
@@ -41,12 +57,17 @@ const BookIndex = styled(({ className, data, location }) => {
     </Layout>
   )
 })`
-  .post-title {
-    font-weight: bold;
-    font-size: 22px;
+  .post-layout {
+    display: flex;
+    flex-direction: row;
   }
-  a {
-    color: ${colors.blue};
+  .book-section {
+    margin-right: 20px;
+    width: 190px;
+  }
+  .book-cover {
+    max-height: 100%;
+    max-width: 100%;
   }
 `
 
@@ -70,6 +91,8 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
+            author
+            score
           }
         }
       }
