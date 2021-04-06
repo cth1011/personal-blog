@@ -4,8 +4,6 @@ import { Box, Text } from "grommet"
 
 import styled from "styled-components"
 
-import { rhythm, scale } from "../utils/typography"
-
 import "../../global.css"
 
 const Header = styled(({ className, title }) => (
@@ -50,8 +48,8 @@ const Layout = styled(({ className, location, title, children }) => {
   font-family: Montserrat;
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rhythm(24)};
-  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+  max-width: 45%;
+  padding: 50px 20px;
 `
 
 export default Layout
